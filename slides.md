@@ -1,637 +1,390 @@
 ---
-# try also 'default' to start simple
-theme: seriph
-# random image from a curated Unsplash collection by Anthony
-# like them? see https://unsplash.com/collections/94734566/slidev
-background: https://cover.sli.dev
-# some information about your slides (markdown enabled)
-title: Welcome to Slidev
-info: |
-  ## Slidev Starter Template
-  Presentation slides for developers.
-
-  Learn more at [Sli.dev](https://sli.dev)
-# apply UnoCSS classes to the current slide
-class: text-center
-# https://sli.dev/features/drawing
+theme: default
+colorSchema: light
+background: white
+class: bg-white text-black
 drawings:
   persist: false
-# slide transition: https://sli.dev/guide/animations.html#slide-transitions
 transition: slide-left
-# enable Comark Syntax: https://comark.dev/syntax/markdown
 comark: true
-# duration of the presentation
-duration: 35min
 ---
-
-# Welcome to Slidev
-
-Presentation slides for developers
-
-<div @click="$slidev.nav.next" class="mt-12 py-1" hover:bg="white op-10">
-  Press Space for next page <carbon:arrow-right />
-</div>
-
-<div class="abs-br m-6 text-xl">
-  <button @click="$slidev.nav.openInEditor()" title="Open in Editor" class="slidev-icon-btn">
-    <carbon:edit />
-  </button>
-  <a href="https://github.com/slidevjs/slidev" target="_blank" class="slidev-icon-btn">
-    <carbon:logo-github />
-  </a>
-</div>
-
-<!--
-The last comment block of each slide will be treated as slide notes. It will be visible and editable in Presenter Mode along with the slide. [Read more in the docs](https://sli.dev/guide/syntax.html#notes)
--->
-
----
-transition: fade-out
----
-
-# What is Slidev?
-
-Slidev is a slides maker and presenter designed for developers, consist of the following features
-
-- 📝 **Text-based** - focus on the content with Markdown, and then style them later
-- 🎨 **Themable** - themes can be shared and re-used as npm packages
-- 🧑‍💻 **Developer Friendly** - code highlighting, live coding with autocompletion
-- 🤹 **Interactive** - embed Vue components to enhance your expressions
-- 🎥 **Recording** - built-in recording and camera view
-- 📤 **Portable** - export to PDF, PPTX, PNGs, or even a hostable SPA
-- 🛠 **Hackable** - virtually anything that's possible on a webpage is possible in Slidev
-<br>
-<br>
-
-Read more about [Why Slidev?](https://sli.dev/guide/why)
-
-<!--
-You can have `style` tag in markdown to override the style for the current page.
-Learn more: https://sli.dev/features/slide-scope-style
--->
 
 <style>
-h1 {
-  background-color: #2B90B6;
-  background-image: linear-gradient(45deg, #4EC5D4 10%, #146b8c 20%);
-  background-size: 100%;
-  -webkit-background-clip: text;
-  -moz-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  -moz-text-fill-color: transparent;
+.slidev-layout {
+  background: white !important;
+  color: black !important;
+}
+
+/* academic cover style */
+.cover-title {
+  font-family: "Times New Roman", Georgia, serif;
+  font-size: 2.6rem;
+  font-weight: 600;
+  text-align: center;
+  letter-spacing: 0.01em;
+  line-height: 1.2;
+  margin-top: 4rem;
+  margin-bottom: 1rem;
+  color: #111;
+  white-space: nowrap;
+}
+
+.cover-subtitle {
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 1.2rem;
+  font-weight: 400;
+  text-align: center;
+  letter-spacing: 0.08em;
+  color: #444;
+  margin-bottom: 2.5rem;
+}
+
+.cover-line {
+  width: 180px;
+  height: 1px;
+  background: #888;
+  margin: 0 auto 2rem auto;
 }
 </style>
 
-<!--
-Here is another comment.
--->
+<div class="cover-title">
+  系外惑星の物理
+</div>
+
+<div class="cover-line"></div>
+
+<div class="cover-subtitle">
+  
+</div>
 
 ---
-transition: slide-up
-level: 2
----
 
-# Navigation
+## 惑星形成の考え方
+>惑星系は恒星形成の副産物として形成されるガスとダスト(固体微粒子)
+>からなる星周円盤(原始惑星系円盤)から形成される.形成の時間スケール
+>は$\sim 1\text{--}10$億年,空間スケールは惑星系なら$\sim 10\,\mathrm{au}$,彗星雲まで含めると
+>$\sim 10^5\,\mathrm{au}$にもなる.そして,円盤内でサブミクロンサイズのダストは
+>$1000\text{--}100000\,\mathrm{km}$サイズの惑星へと成長していく.この惑星形成の過程は,
+>現代的な惑星形成論の創始者の一人である林忠四郎によれば,次のような物理過程
+>ということができる.
+> - 巨大な原子集団の長期かつ複雑多岐にわたる非可逆過程
+> - 原子・分子・光子の相互作用に関する微視的法則と重力が主役である巨視的な運動法則の両者によって規定
 
-Hover on the bottom-left corner to see the navigation's controls panel, [learn more](https://sli.dev/guide/ui#navigation-bar)
+>このようにミクロからマクロまでの物理が複雑に関連し合っている物理過
+>程を調べることは一筋縄でいかない部分もあるが,その分,豊かで面白い系
+>ということもできる.このような性質をもつ物理過程である惑星形成を理解
+>するには,要素還元的なアプローチが適している.すなわち
+> - 形成過程を本質的な素過程に還元し物理を理解する.
+> - 素過程を総合して形成理論を構築する.
+>という方法である.
 
-## Keyboard Shortcuts
-
-|                                                     |                             |
-| --------------------------------------------------- | --------------------------- |
-| <kbd>right</kbd> / <kbd>space</kbd>                 | next animation or slide     |
-| <kbd>left</kbd>  / <kbd>shift</kbd><kbd>space</kbd> | previous animation or slide |
-| <kbd>up</kbd>                                       | previous slide              |
-| <kbd>down</kbd>                                     | next slide                  |
-
-<!-- https://sli.dev/guide/animations.html#click-animation -->
-<img
-  v-click
-  class="absolute -bottom-9 -left-7 w-80 opacity-50"
-  src="https://sli.dev/assets/arrow-bottom-left.svg"
-  alt=""
-/>
-<p v-after class="absolute bottom-23 left-45 opacity-30 transform -rotate-10">Here!</p>
-
----
-layout: two-cols
-layoutClass: gap-16
----
-
-# Table of contents
-
-You can use the `Toc` component to generate a table of contents for your slides:
-
-```html
-<Toc minDepth="1" maxDepth="1" />
-```
-
-The title will be inferred from your slide content, or you can override it with `title` and `level` in your frontmatter.
-
-::right::
-
-<Toc text-sm minDepth="1" maxDepth="2" />
-
----
-layout: image-right
-image: https://cover.sli.dev
----
-
-# Code
-
-Use code snippets and get the highlighting directly, and even types hover!
-
-```ts [filename-example.ts] {all|4|6|6-7|9|all} twoslash
-// TwoSlash enables TypeScript hover information
-// and errors in markdown code blocks
-// More at https://shiki.style/packages/twoslash
-import { computed, ref } from 'vue'
-
-const count = ref(0)
-const doubled = computed(() => count.value * 2)
-
-doubled.value = 2
-```
-
-<arrow v-click="[4, 5]" x1="350" y1="310" x2="195" y2="342" color="#953" width="2" arrowSize="1" />
-
-<!-- This allow you to embed external code blocks -->
-<<< @/snippets/external.ts#snippet
-
-<!-- Footer -->
-
-[Learn more](https://sli.dev/features/line-highlighting)
-
-<!-- Inline style -->
 <style>
-.footnotes-sep {
-  @apply mt-5 opacity-10;
+blockquote {
+  padding: 0.5em 1em;
+  border-left: 4px solid currentColor;
+  line-height: 1;
 }
-.footnotes {
-  @apply text-sm opacity-75;
+
+blockquote p {
+  text-indent: 1em;
+  margin: 0 0 0.8em;
+  line-height: 1.2;
 }
-.footnote-backref {
-  display: none;
+
+blockquote p:last-child {
+  margin-bottom: 0;
 }
 </style>
 
-<!--
-Notes can also sync with clicks
-
-[click] This will be highlighted after the first click
-
-[click] Highlighted with `count = ref(0)`
-
-[click:3] Last click (skip two clicks)
--->
-
----
-level: 2
----
-
-# Shiki Magic Move
-
-Powered by [shiki-magic-move](https://shiki-magic-move.netlify.app/), Slidev supports animations across multiple code snippets.
-
-Add multiple code blocks and wrap them with <code>````md magic-move</code> (four backticks) to enable the magic move. For example:
-
-````md magic-move {lines: true}
-```ts {*|2|*}
-// step 1
-const author = reactive({
-  name: 'John Doe',
-  books: [
-    'Vue 2 - Advanced Guide',
-    'Vue 3 - Basic Guide',
-    'Vue 4 - The Mystery'
-  ]
-})
-```
-
-```ts {*|1-2|3-4|3-4,8}
-// step 2
-export default {
-  data() {
-    return {
-      author: {
-        name: 'John Doe',
-        books: [
-          'Vue 2 - Advanced Guide',
-          'Vue 3 - Basic Guide',
-          'Vue 4 - The Mystery'
-        ]
-      }
-    }
-  }
-}
-```
-
-```ts
-// step 3
-export default {
-  data: () => ({
-    author: {
-      name: 'John Doe',
-      books: [
-        'Vue 2 - Advanced Guide',
-        'Vue 3 - Basic Guide',
-        'Vue 4 - The Mystery'
-      ]
-    }
-  })
-}
-```
-
-Non-code blocks are ignored.
-
-```vue
-<!-- step 4 -->
-<script setup>
-const author = {
-  name: 'John Doe',
-  books: [
-    'Vue 2 - Advanced Guide',
-    'Vue 3 - Basic Guide',
-    'Vue 4 - The Mystery'
-  ]
-}
-</script>
-```
-````
 
 ---
 
-# Components
-
-<div grid="~ cols-2 gap-4">
-<div>
-
-You can use Vue components directly inside your slides.
-
-We have provided a few built-in components like `<Tweet/>` and `<Youtube/>` that you can use directly. And adding your custom components is also super easy.
-
-```html
-<Counter :count="10" />
-```
-
-<!-- ./components/Counter.vue -->
-<Counter :count="10" m="t-4" />
-
-Check out [the guides](https://sli.dev/builtin/components.html) for more.
-
-</div>
-<div>
-
-```html
-<Tweet id="1390115482657726468" />
-```
-
-<Tweet id="1390115482657726468" scale="0.65" />
-
-</div>
-</div>
-
-<!--
-Presenter note with **bold**, *italic*, and ~~striked~~ text.
-
-Also, HTML elements are valid:
-<div class="flex w-full">
-  <span style="flex-grow: 1;">Left content</span>
-  <span>Right content</span>
-</div>
--->
-
----
-class: px-20
----
-
-# Themes
-
-Slidev comes with powerful theming support. Themes can provide styles, layouts, components, or even configurations for tools. Switching between themes by just **one edit** in your frontmatter:
-
-<div grid="~ cols-2 gap-2" m="t-2">
-
-```yaml
----
-theme: default
----
-```
-
-```yaml
----
-theme: seriph
----
-```
-
-<img border="rounded" src="https://github.com/slidevjs/themes/blob/main/screenshots/theme-default/01.png?raw=true" alt="">
-
-<img border="rounded" src="https://github.com/slidevjs/themes/blob/main/screenshots/theme-seriph/01.png?raw=true" alt="">
-
-</div>
-
-Read more about [How to use a theme](https://sli.dev/guide/theme-addon#use-theme) and
-check out the [Awesome Themes Gallery](https://sli.dev/resources/theme-gallery).
-
----
-
-# Clicks Animations
-
-You can add `v-click` to elements to add a click animation.
-
-<div v-click>
-
-This shows up when you click the slide:
-
-```html
-<div v-click>This shows up when you click the slide.</div>
-```
-
-</div>
-
-<br>
-
-<v-click>
-
-The <span v-mark.red="3"><code>v-mark</code> directive</span>
-also allows you to add
-<span v-mark.circle.orange="4">inline marks</span>
-, powered by [Rough Notation](https://roughnotation.com/):
-
-```html
-<span v-mark.underline.orange>inline markers</span>
-```
-
-</v-click>
-
-<div mt-20 v-click>
-
-[Learn more](https://sli.dev/guide/animations#click-animation)
-
-</div>
-
----
-
-# Motions
-
-Motion animations are powered by [@vueuse/motion](https://motion.vueuse.org/), triggered by `v-motion` directive.
-
-```html
-<div
-  v-motion
-  :initial="{ x: -80 }"
-  :enter="{ x: 0 }"
-  :click-3="{ x: 80 }"
-  :leave="{ x: 1000 }"
+### 太陽系の特徴
+> 現代的な惑星形成の研究は，系外惑星の発見以前，20世紀後半から太陽系
+> 形成の研究として始まった．ここでは説明すべき太陽系の主な特徴について
+> まとめておこう．図2.1に太陽系の天体の分類を示す．
 >
-  Slidev
-</div>
-```
+> まず，惑星系全体としての特徴を見てみよう．惑星の総質量は太陽質量の
+> 約$1/1000$倍しかなく，そのほとんどは木星と土星に集中している．一方，惑
+> 星の軌道角運動量の大きさは太陽の自転角運動量の約190倍にもなる．つま
+> り，太陽系では質量は太陽に集中し，角運動量は惑星に集中している．
 
-<div class="w-60 relative">
-  <div class="relative w-40 h-40">
-    <img
-      v-motion
-      :initial="{ x: 800, y: -100, scale: 1.5, rotate: -50 }"
-      :enter="final"
-      class="absolute inset-0"
-      src="https://sli.dev/logo-square.png"
-      alt=""
-    />
-    <img
-      v-motion
-      :initial="{ y: 500, x: -100, scale: 2 }"
-      :enter="final"
-      class="absolute inset-0"
-      src="https://sli.dev/logo-circle.png"
-      alt=""
-    />
-    <img
-      v-motion
-      :initial="{ x: 600, y: 400, scale: 2, rotate: 100 }"
-      :enter="final"
-      class="absolute inset-0"
-      src="https://sli.dev/logo-triangle.png"
-      alt=""
-    />
-  </div>
-
-  <div
-    class="text-5xl absolute top-14 left-40 text-[#2B90B6] -z-1"
-    v-motion
-    :initial="{ x: -80, opacity: 0}"
-    :enter="{ x: 0, opacity: 1, transition: { delay: 2000, duration: 1000 } }">
-    Slidev
-  </div>
-</div>
-
-<!-- vue script setup scripts can be directly used in markdown, and will only affects current page -->
-<script setup lang="ts">
-const final = {
-  x: 0,
-  y: 0,
-  rotate: 0,
-  scale: 1,
-  transition: {
-    type: 'spring',
-    damping: 10,
-    stiffness: 20,
-    mass: 2
-  }
-}
-</script>
-
-<div
-  v-motion
-  :initial="{ x:35, y: 30, opacity: 0}"
-  :enter="{ y: 0, opacity: 1, transition: { delay: 3500 } }">
-
-[Learn more](https://sli.dev/guide/animations.html#motion)
-
-</div>
-
----
-
-# $\LaTeX$
-
-$\LaTeX$ is supported out-of-box. Powered by [$\KaTeX$](https://katex.org/).
-
-<div h-3 />
-
-Inline $\sqrt{3x-1}+(1+x)^2$
-
-Block
-$$ {1|3|all}
-\begin{aligned}
-\nabla \cdot \vec{E} &= \frac{\rho}{\varepsilon_0} \\
-\nabla \cdot \vec{B} &= 0 \\
-\nabla \times \vec{E} &= -\frac{\partial\vec{B}}{\partial t} \\
-\nabla \times \vec{B} &= \mu_0\vec{J} + \mu_0\varepsilon_0\frac{\partial\vec{E}}{\partial t}
-\end{aligned}
-$$
-
-[Learn more](https://sli.dev/features/latex)
-
----
-
-# Diagrams
-
-You can create diagrams / graphs from textual descriptions, directly in your Markdown.
-
-<div class="grid grid-cols-4 gap-5 pt-4 -mb-6">
-
-```mermaid {scale: 0.5, alt: 'A simple sequence diagram'}
-sequenceDiagram
-    Alice->John: Hello John, how are you?
-    Note over Alice,John: A typical interaction
-```
-
-```mermaid {theme: 'neutral', scale: 0.8}
-graph TD
-B[Text] --> C{Decision}
-C -->|One| D[Result 1]
-C -->|Two| E[Result 2]
-```
-
-```mermaid
-mindmap
-  root((mindmap))
-    Origins
-      Long history
-      ::icon(fa fa-book)
-      Popularisation
-        British popular psychology author Tony Buzan
-    Research
-      On effectiveness<br/>and features
-      On Automatic creation
-        Uses
-            Creative techniques
-            Strategic planning
-            Argument mapping
-    Tools
-      Pen and paper
-      Mermaid
-```
-
-```plantuml {scale: 0.7}
-@startuml
-
-package "Some Group" {
-  HTTP - [First Component]
-  [Another Component]
+<style>
+blockquote {
+  padding: 0.5em 1em;
+  border-left: 4px solid currentColor;
+  line-height: 1;
 }
 
-node "Other Groups" {
-  FTP - [Second Component]
-  [First Component] --> FTP
+blockquote p {
+  text-indent: 1em;
+  margin: 0 0 0.8em;
+  line-height: 1.2;
 }
 
-cloud {
-  [Example 1]
+blockquote p:last-child {
+  margin-bottom: 0;
+}
+</style>
+
+角運動量
+$\boldsymbol{L}
+= \boldsymbol{r} \times \boldsymbol{p}
+= m \boldsymbol{r} \times \boldsymbol{v}$
+
+数値的に $L = rp\sin\theta = mrv\sin\theta$
+
+m = m_{sun} + m_{planets} 
+= 1 + 1e-3 [太陽質量], 
+
+$r = 10^7 + 4.5e9$ [kg]
+以上のことにより，太陽系では角運動量が惑星に集中している
+
+---
+
+>太陽系には内側から外側へ向かって,地球型(岩石),木星型(ガス),海
+>王星型(氷)の組成の異なる3種類の惑星が並んでいる.水星,金星,地球,
+>火星は地球型惑星で,岩石質の惑星である.木星と土星はガスを主成分とす
+>る木星型惑星で,ガスの主成分は水素とヘリウムである.天王星と海王星は
+>海王星型惑星で,ガス成分は質量の約10\%しかなく,質量のほとんどは氷
+>(水,メタン,アンモニアを主成分とする混合物)である.これらの惑星の平
+>均密度は,組成を反映して,地球型は$3.9\text{--}5.5\,\mathrm{g\,cm^{-3}}$,木星型と海王星型は
+>$\simeq 1.0\,\mathrm{g\,cm^{-3}}$になっている.また,軌道範囲と組成だけでなく,質量範囲も
+>異なっていて,地球型は$\sim 0.1\text{--}1\,M_\oplus$,木星型は$\sim 100\,M_\oplus$,海王星型は
+>$\sim 10\,M_\oplus$となっている.惑星の内部構造は基本的に密度成層を成しており,
+>地球型では鉄の核の周りに岩石,木星・海王星型では主に岩石・氷等の重元
+>素からなる固体核の周りに流体であるガスや氷となっている.最近の惑星探
+>査によって,木星や土星の固体核と流体部分ははっきりと層で区別されてい
+>るのではなく混合されていて,密度変化は連続的になっていることが明らか
+>になってきている.
+
+<style>
+blockquote {
+  padding: 0.5em 1em;
+  border-left: 4px solid currentColor;
+  line-height: 1;
 }
 
-database "MySql" {
-  folder "This is my folder" {
-    [Folder 3]
-  }
-  frame "Foo" {
-    [Frame 4]
-  }
+blockquote p {
+  text-indent: 1em;
+  margin: 0 0 0.8em;
+  line-height: 1.2;
 }
 
-[Another Component] --> [Example 1]
-[Example 1] --> [Folder 3]
-[Folder 3] --> [Frame 4]
+blockquote p:last-child {
+  margin-bottom: 0;
+}
+</style>
 
-@enduml
-```
-
-</div>
-
-Learn more: [Mermaid Diagrams](https://sli.dev/features/mermaid) and [PlantUML Diagrams](https://sli.dev/features/plantuml)
-
----
-foo: bar
-dragPos:
-  square: 691,32,167,_,-16
----
-
-# Draggable Elements
-
-Double-click on the draggable elements to edit their positions.
-
-<br>
-
-###### Directive Usage
-
-```md
-<img v-drag="'square'" src="https://sli.dev/logo.png">
-```
-
-<br>
-
-###### Component Usage
-
-```md
-<v-drag text-3xl>
-  <div class="i-carbon:arrow-up" />
-  Use the `v-drag` component to have a draggable container!
-</v-drag>
-```
-
-<v-drag pos="663,206,261,_,-15">
-  <div text-center text-3xl border border-main rounded>
-    Double-click me!
-  </div>
-</v-drag>
-
-<img v-drag="'square'" src="https://sli.dev/logo.png">
-
-###### Draggable Arrow
-
-```md
-<v-drag-arrow two-way />
-```
-
-<v-drag-arrow pos="67,452,253,46" two-way op70 />
-
----
-src: ./pages/imported-slides.md
-hide: false
----
 
 ---
 
-# Monaco Editor
 
-Slidev provides built-in Monaco Editor support.
+>惑星の軌道には共通の特徴がある.軌道はほぼ円軌道で,軌道離心率は
+>$e \lesssim 0.1$になっている.また,軌道面は揃っていて,惑星の平均軌道面(不変
+>面)に対しての軌道傾斜角(ラジアン)は$I \lesssim 0.1$となっている.つまり,惑
+>星の軌道は同一平面内の太陽を中心とする同心円になっている.そしてすべ
+>ての惑星は軌道上を同じ方向に公転運動している.
+>
+>惑星の自転は,金星と天王星を除くと,順行(軌道運動と同方向)であり,
+>自転軸傾斜角は$\varepsilon \lesssim 0.5$である.金星は逆行しており$\varepsilon \simeq \pi$,天王星は
+>$\varepsilon \simeq \pi/2$となっている.自転周期は,水星は59日,金星は243日であるが,他は
+>半日から1日となっている.
+>
+>太陽系には惑星以外にも太陽系小天体と呼ばれる小天体が無数に存在して
+>いる.これらは軌道範囲で分類されていて,木星軌道以内を小惑星,海王星
+>軌道以遠を太陽系外縁天体と呼ぶ.その間にはケンタウルス天体と呼ばれる
+>小惑星と太陽系外縁天体の間の遷移的な小天体が存在している.太陽系外縁
+>天体の外側は彗星の巣であるオールトの雲に接続し,その外縁は太陽の潮汐半径($\simeq 2\times 10^5\,\mathrm{au}$)になっている.彗星とは氷小天体が揮発性大気をもつ状態を指す.
 
-Add `{monaco}` to the code block to turn it into an editor:
 
-```ts {monaco}
-import { ref } from 'vue'
-import { emptyArray } from './external'
+<style>
+blockquote {
+  padding: 0.5em 1em;
+  border-left: 4px solid currentColor;
+  line-height: 1;
+}
 
-const arr = ref(emptyArray(10))
-```
+blockquote p {
+  text-indent: 1em;
+  margin: 0 0 0.8em;
+  line-height: 1.2;
+}
 
-Use `{monaco-run}` to create an editor that can execute the code directly in the slide:
-
-```ts {monaco-run}
-import { version } from 'vue'
-import { emptyArray, sayHello } from './external'
-
-sayHello()
-console.log(`vue ${version}`)
-console.log(emptyArray<number>(10).reduce(fib => [...fib, fib.at(-1)! + fib.at(-2)!], [1, 1]))
-```
+blockquote p:last-child {
+  margin-bottom: 0;
+}
+</style>
 
 ---
-layout: center
-class: text-center
+
+### 太陽系の形成モデル
+
+>太陽系形成論は未だ発展途上で,現在も様々なモデルが提唱されている.
+>ここではまず,現在でも基礎となっている古典的な太陽系形成モデルの概要について紹介しよう.
+>
+>太陽系形成モデルには,大きく分けて円盤不安定モデルと核集積モデルの2つの考え方がある.
+>円盤不安定モデルは提唱者の名前からキャメ
+>ロンモデル,核集積モデルは研究が行われた大学の所在地から京都モデルとも呼ばれる.
+>表2.1に,2つのモデルの特徴をまとめる.
+
+<table class="formation-table">
+  <caption>表 2.1 太陽系形成モデル</caption>
+  <thead>
+    <tr>
+      <th>モデル</th>
+      <th>
+        <div class="th-center">
+          円盤質量 <span class="math">M<sub>☉</sub></span>
+        </div>
+      </th>
+      <th>基本材料</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>円盤不安定</td>
+      <td><span class="math">≃ 1</span></td>
+      <td>原始ガス惑星</td>
+    </tr>
+    <tr>
+      <td>核集積</td>
+      <td><span class="math">≃ 0.01</span></td>
+      <td>微惑星</td>
+    </tr>
+  </tbody>
+</table>
+
+<style>
+.formation-table {
+  width: auto;
+  min-width: 28em;
+  max-width: 70%;
+  margin: 0.6em auto;
+  border-collapse: collapse;
+  font-size: 0.75em;
+  line-height: 1.35;
+}
+
+.formation-table caption {
+  caption-side: top;
+  margin-bottom: 0.35em;
+  font-size: 0.9em;
+  font-weight: bold;
+  text-align: center;
+}
+
+.formation-table th,
+.formation-table td {
+  border: 1px solid currentColor;
+  padding: 0.25em 0.65em;
+  text-align: center;
+  vertical-align: middle;
+  white-space: nowrap;
+}
+
+.formation-table .th-center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 0.2em;
+}
+
+.formation-table .math {
+  font-family: KaTeX_Main, "Times New Roman", serif;
+}
+</style>
+
+<style>
+blockquote {
+  padding: 0.5em 1em;
+  border-left: 4px solid currentColor;
+  line-height: 1;
+}
+
+blockquote p {
+  text-indent: 1em;
+  margin: 0 0 0.8em;
+  line-height: 1.2;
+}
+
+blockquote p:last-child {
+  margin-bottom: 0;
+}
+</style>
+
 ---
 
-# Learn More
+#### 円盤不安定モデル
 
-[Documentation](https://sli.dev) · [GitHub](https://github.com/slidevjs/slidev) · [Showcases](https://sli.dev/resources/showcases)
+>円盤不安定モデルの特徴は,$\simeq 1\,M_\odot$と大きな質量の原始惑星系円盤を仮定することと,
+>惑星のマクロな基本材料(ビルディングブロック)として原始ガス惑星を考えることにある.
+>このモデルでは原始惑星系円盤の重力不安定性によって円盤から直接惑星が形成される.
+>基本シナリオは以下の通りである.
+> 1. 重力不安定による円盤の分裂で原始ガス惑星が形成される.
+> 2. 原始ガス惑星中で固体成分が中心に沈殿し固体核が形成される.
+> 3. ガスを失うことで固体惑星が形成される.
+<blockquote>
+  <p>
+    このモデルには重力不安定性という軌道周期程度の短い時間スケールで原
+    始ガス惑星を形成できるという長所がある.一方,ガス惑星のガスを散逸さ
+    せることで,岩石・氷惑星を形成させるわけだが,巨大で重力の強い惑星か
+    らガスを散逸させるのは容易ではない.また,小惑星,太陽系外縁天体,彗
+    星のような固体小天体をどのように形成するのかも問題だ.そもそも,重力
+    的に不安定な原始惑星系円盤が形成されるかという問題もある.以上のこと
+    から,現在は円盤不安定モデルは太陽系形成には適さないと考えられている.
+    しかし,近接ガス惑星や大離心率惑星などの系外惑星の形成では円盤不安定
+    モデルが有効な可能性があり,再び脚光を浴びている.
+  </p>
+</blockquote>
 
-<PoweredBySlidev mt-10 />
+<style>
+blockquote {
+  padding: 0.5em 1em;
+  border-left: 4px solid currentColor;
+  line-height: 1;
+}
+
+blockquote p {
+  text-indent: 1em;
+  margin: 0 0 0.8em;
+  line-height: 1.2;
+}
+
+blockquote p:last-child {
+  margin-bottom: 0;
+}
+</style>
+
+---
+
+#### 核集積モデル
+
+>核集積モデルは,$\simeq 0.01\,M_\odot$と小さい質量の原始惑星系円盤を考え,さらに固体小天体,微惑星という基本材料を仮定する.
+>この微惑星仮説に基づく形成シナリオは以下の通りである.
+> 1. ダストの集積によって微惑星が形成される.
+> 2. 微惑星の集積によって固体惑星が形成される.
+> 3. 固体惑星がガスを捕獲することによってガス惑星が形成される.
+>
+>微惑星仮説は地球型惑星と海王星型惑星はもちろんのこと,木星型惑星でも重元素存在比が太陽組成より大きいことを説明できる.
+>また,固体小天体の存在とも調和的である.この考え方は,ガス惑星の形成過程,すなわち最初に固体核(惑星)が形成されてそれがガスを捕獲する,から核集積モデルと呼ばれる.
+>
+>現在,核集積モデルは太陽系形成だけでなく,系外惑星形成でも標準シナリオになっている.以下では核集積モデルをさらに詳しく説明する.
+
+<style>
+blockquote {
+  padding: 0.5em 1em;
+  border-left: 4px solid currentColor;
+  line-height: 1;
+}
+
+blockquote p {
+  text-indent: 1em;
+  margin: 0 0 0.8em;
+  line-height: 1.2;
+}
+
+blockquote p:last-child {
+  margin-bottom: 0;
+}
+</style>
