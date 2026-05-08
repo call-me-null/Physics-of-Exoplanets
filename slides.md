@@ -9,13 +9,7 @@ transition: slide-left
 comark: true
 ---
 
-<style>
-.slidev-layout {
-  background: white !important;
-  color: black !important;
-}
-
-/* academic cover style */
+<style scoped>
 .cover-title {
   font-family: "Times New Roman", Georgia, serif;
   font-size: 2.6rem;
@@ -25,7 +19,7 @@ comark: true
   line-height: 1.2;
   margin-top: 4rem;
   margin-bottom: 1rem;
-  color: #111;
+  color: #000 !important;
   white-space: nowrap;
 }
 
@@ -35,7 +29,7 @@ comark: true
   font-weight: 400;
   text-align: center;
   letter-spacing: 0.08em;
-  color: #444;
+  color: #333 !important;
   margin-bottom: 2.5rem;
 }
 
@@ -47,6 +41,35 @@ comark: true
 }
 </style>
 
+<style>
+:global(.slidev-layout) {
+  background: white !important;
+  color: black !important;
+}
+
+:global(.slidev-page) {
+  background: white !important;
+  color: black !important;
+}
+
+:global(blockquote) {
+  padding: 0.4em 1em !important;
+  border-left: 4px solid currentColor !important;
+  line-height: 1.4 !important;
+  font-family: var(--slidev-font-sans) !important;
+}
+
+:global(blockquote p) {
+  text-indent: 1em !important;
+  margin: 0 0 0.8em !important;
+  line-height: 1.6 !important;
+}
+
+:global(blockquote p:last-child) {
+  margin-bottom: 0 !important;
+}
+</style>
+
 <div class="cover-title">
   系外惑星の物理
 </div>
@@ -54,7 +77,7 @@ comark: true
 <div class="cover-line"></div>
 
 <div class="cover-subtitle">
-  
+  Physics of Exoplanets
 </div>
 
 ---
@@ -70,6 +93,14 @@ comark: true
 > - 巨大な原子集団の長期かつ複雑多岐にわたる非可逆過程
 > - 原子・分子・光子の相互作用に関する微視的法則と重力が主役である巨視的な運動法則の両者によって規定
 
+恒星形成とは，星間ガスが自己重力で収縮し，内部に温度が上がる．1000万度超えると水素の核融合反応が点火する．両過程がエネルギーを放出する．
+
+「原子・分子・光子の相互作用」「微視的」：輻射流体力学・磁流体力学
+
+「巨視的」：古典力学
+
+---
+
 >このようにミクロからマクロまでの物理が複雑に関連し合っている物理過
 >程を調べることは一筋縄でいかない部分もあるが,その分,豊かで面白い系
 >ということもできる.このような性質をもつ物理過程である惑星形成を理解
@@ -78,28 +109,15 @@ comark: true
 > - 素過程を総合して形成理論を構築する.
 >という方法である.
 
-恒星形成とは
+素過程：複雑な物理現象を構成するそれぞれの「過程」，例えば
+- 塵の相互作用
+- 微惑星の形成
+- 初期天体の衝突
+- ... 
 
 サブミクロン：亚微米
 
-<style>
-blockquote {
-  padding: 0.5em 1em;
-  border-left: 4px solid currentColor;
-  line-height: 1;
-}
-
-blockquote p {
-  text-indent: 1em;
-  margin: 0 0 0.8em;
-  line-height: 1.2;
-}
-
-blockquote p:last-child {
-  margin-bottom: 0;
-}
-</style>
-
+ 
 
 ---
 
@@ -110,23 +128,12 @@ blockquote p:last-child {
 > まず，惑星系全体としての特徴を見てみよう．惑星の総質量は太陽質量の約$1/1000$倍しかなく，そのほとんどは木星と土星に集中している．
 >一方，惑星の軌道角運動量の大きさは太陽の自転角運動量の約190倍にもなる．つまり，太陽系では質量は太陽に集中し，角運動量は惑星に集中している．
 
-<style>
-blockquote {
-  padding: 0.5em 1em;
-  border-left: 4px solid currentColor;
-  line-height: 1;
-}
+ 
 
-blockquote p {
-  text-indent: 1em;
-  margin: 0 0 0.8em;
-  line-height: 1.2;
-}
+<div class="grid grid-cols-2 gap-6 text-sm">
 
-blockquote p:last-child {
-  margin-bottom: 0;
-}
-</style>
+<div>
+
 
 角運動量
 $\boldsymbol{L}
@@ -145,7 +152,24 @@ $L_{\odot} = 1.930377 \cdot 10^{41} kg·m²/s (0.61\%total)$
 
 $L_{Jupiter} / L_{total} = 61.12\%$
 
-$L/m = \sqrt{G m_{\cdot}a(1-e^2)}$
+</div>
+
+<div>
+
+軌道要素を用いて角運動量を表す式
+
+$L = m\sqrt{GMa(1-e^2)}$
+
+太陽密度の半径方向分布：日震学
+
+太陽自転角運動量の密度補正係数：0.06-0.07
+
+（一様な球の場合，この係数は0.4）
+</div>
+
+</div>
+
+
 
 ---
 
@@ -156,71 +180,65 @@ $L/m = \sqrt{G m_{\cdot}a(1-e^2)}$
 >これらの惑星の平均密度は,組成を反映して,地球型は$3.9\text{--}5.5\,\mathrm{g\,cm^{-3}}$, 木星型と海王星型は $\simeq 1.0\,\mathrm{g\,cm^{-3}}$になっている.
 >また,軌道範囲と組成だけでなく,質量範囲も異なっていて,地球型は$\sim 0.1\text{--}1\,M_\oplus$,木星型は$\sim 100\,M_\oplus$,海王星型は$\sim 10\,M_\oplus$となっている.
 >惑星の内部構造は基本的に密度成層を成しており,地球型では鉄の核の周りに岩石,木星・海王星型では主に岩石・氷等の重元素からなる固体核の周りに流体であるガスや氷となっている.
->**最近の惑星探査によって,木星や土星の固体核と流体部分ははっきりと層で区別されているのではなく混合されていて,密度変化は連続的になっていることが明らかsになってきている.**
+>**最近の惑星探査によって,木星や土星の固体核と流体部分ははっきりと層で区別されているのではなく混合されていて,密度変化は連続的になっていることが明らかになってきている.**
 
-地球密度　5.52　岩石　2.9-3.5
+**木星の密度の調べ方**：（生駒大洋氏より）重力場より密度分布を推測
 
-**木星の密度の調べ方**
+「最近の探査」
+
+<div class="compact-table">
+
+|                            | 水星    |  金星  |  地球  |  火星  |  木星  |  土星  | 天王星 | 海王星 |
+| -------------------------- | ------- | ----- | ----- | ----- | ----- | ----- | ------ | ------ |
+| 密度 $\mathrm{g\,cm^{-3}}$ | 5.429   | 5.243 | 5.514 | 3.934 | 1.326 | 0.687 | 1.270  | 1.638  |
+| 質量 $M_\oplus$            | 0.0553  | 0.815 | 1     | 0.107 | 317.8 | 95.2  | 14.5   | 17.1   |
+
+</div>
 
 <style>
-blockquote {
-  padding: 0.5em 1em;
-  border-left: 4px solid currentColor;
-  line-height: 1;
-}
-
-blockquote p {
-  text-indent: 1em;
-  margin: 0 0 0.8em;
-  line-height: 1.2;
-}
-
-blockquote p:last-child {
-  margin-bottom: 0;
+:global(.compact-table table) {
+  font-size: 0.8em;
 }
 </style>
-
-
 ---
 
 
->惑星の軌道には共通の特徴がある.軌道はほぼ円軌道で,軌道離心率は
->$e \lesssim 0.1$になっている.また,軌道面は揃っていて,惑星の平均軌道面(不変
->面)に対しての軌道傾斜角(ラジアン)は$I \lesssim 0.1$となっている.つまり,惑
->星の軌道は同一平面内の太陽を中心とする同心円になっている.そしてすべ
->ての惑星は軌道上を同じ方向に公転運動している.
+>惑星の軌道には共通の特徴がある.軌道はほぼ円軌道で,軌道離心率は$e \lesssim 0.1$になっている.また,軌道面は揃っていて,惑星の平均軌道面(不変面)に対しての軌道傾斜角(ラジアン)は$I \lesssim 0.1$となっている.
+>つまり,惑星の軌道は同一平面内の太陽を中心とする同心円になっている.そしてすべての惑星は軌道上を同じ方向に公転運動している.
 >
 >惑星の自転は,金星と天王星を除くと,順行(軌道運動と同方向)であり,
->自転軸傾斜角は$\varepsilon \lesssim 0.5$である.金星は逆行しており$\varepsilon \simeq \pi$,天王星は
->$\varepsilon \simeq \pi/2$となっている.自転周期は,水星は59日,金星は243日であるが,他は
->半日から1日となっている.
->
->太陽系には惑星以外にも太陽系小天体と呼ばれる小天体が無数に存在して
->いる.これらは軌道範囲で分類されていて,木星軌道以内を小惑星,海王星
->軌道以遠を太陽系外縁天体と呼ぶ.その間にはケンタウルス天体と呼ばれる
->小惑星と太陽系外縁天体の間の遷移的な小天体が存在している.太陽系外縁
->天体の外側は彗星の巣であるオールトの雲に接続し,その外縁は太陽の潮汐半径($\simeq 2\times 10^5\,\mathrm{au}$)になっている.**彗星とは氷小天体が揮発性大気をもつ状態を指す.**
+>自転軸傾斜角は$\varepsilon \lesssim 0.5$である.金星は逆行しており$\varepsilon \simeq \pi$,天王星は$\varepsilon \simeq \pi/2$となっている.自転周期は,水星は59日,金星は243日であるが,他は半日から1日となっている.
 
-水星公転周期８８日，金星
 
+<div class="compact-table">
+
+|                          |    水星     |    金星     |     地球     |     火星     |   木星   |   土星   |   天王星    |    海王星    |
+| ------------------------ | ----------: | ----------: | -----------: | -----------: | -------: | -------: | ----------: | -----------: |
+| 離心率                   |      0.2056 |      0.0068 |       0.0167 |       0.0934 |   0.0485 |   0.0555 |      0.0463 |       0.0090 |
+| 軌道傾斜角 $\mathrm{deg}$ |       7.004 |       3.395 |        0.001 |        1.849 |    1.303 |    2.489 |       0.773 |        1.770 |
+| 自転傾斜角 $\mathrm{deg}$ |        0.01 |     177.000 |       23.400 |       25.200 |    3.120 |   26.700 |      97.800 |       28.300 |
+| 自転周期 (日)            |     58.6462 |   −243.0187 |   0.99726968 |   1.02595675 |     0.41 |     0.44 |    −0.71833 |      0.67125 |
+
+</div>
 
 <style>
-blockquote {
-  padding: 0.5em 1em;
-  border-left: 4px solid currentColor;
-  line-height: 1;
-}
-
-blockquote p {
-  text-indent: 1em;
-  margin: 0 0 0.8em;
-  line-height: 1.2;
-}
-
-blockquote p:last-child {
-  margin-bottom: 0;
+:global(.compact-table table) {
+  font-size: 0.8em;
 }
 </style>
+
+---
+
+>太陽系には惑星以外にも太陽系小天体と呼ばれる小天体が無数に存在している.
+>これらは軌道範囲で分類されていて,木星軌道以内を小惑星,海王星軌道以遠を太陽系外縁天体と呼ぶ.
+>その間にはケンタウルス天体と呼ばれる小惑星と太陽系外縁天体の間の遷移的な小天体が存在している.
+>太陽系外縁天体の外側は彗星の巣であるオールトの雲に接続し,その外縁は太陽の潮汐半径($\simeq 2\times 10^5\,\mathrm{au}$)になっている.
+>**彗星とは氷小天体が揮発性大気をもつ状態を指す.**
+
+潮汐半径：潮汐力と天体重力と等しい距離．
+
+$r=(\frac{m}{3M})^{\frac{1}{3}}a$
+
 
 ---
 
@@ -301,24 +319,7 @@ blockquote p:last-child {
 }
 </style>
 
-<style>
-blockquote {
-  padding: 0.5em 1em;
-  border-left: 4px solid currentColor;
-  line-height: 1;
-}
-
-blockquote p {
-  text-indent: 1em;
-  margin: 0 0 0.8em;
-  line-height: 1.2;
-}
-
-blockquote p:last-child {
-  margin-bottom: 0;
-}
-</style>
-
+ 
 ---
 
 #### 円盤不安定モデル Disk instability 
@@ -346,24 +347,7 @@ blockquote p:last-child {
 
 Disk instability 
 
-<style>
-blockquote {
-  padding: 0.5em 1em;
-  border-left: 4px solid currentColor;
-  line-height: 1;
-}
-
-blockquote p {
-  text-indent: 1em;
-  margin: 0 0 0.8em;
-  line-height: 1.2;
-}
-
-blockquote p:last-child {
-  margin-bottom: 0;
-}
-</style>
-
+ 
 ---
 
 #### 核集積モデル
@@ -379,24 +363,7 @@ blockquote p:last-child {
 >
 >現在,核集積モデルは太陽系形成だけでなく,系外惑星形成でも標準シナリオになっている.以下では核集積モデルをさらに詳しく説明する.
 
-<style>
-blockquote {
-  padding: 0.5em 1em;
-  border-left: 4px solid currentColor;
-  line-height: 1;
-}
-
-blockquote p {
-  text-indent: 1em;
-  margin: 0 0 0.8em;
-  line-height: 1.2;
-}
-
-blockquote p:last-child {
-  margin-bottom: 0;
-}
-</style>
-
+ 
 ガス・埃　ーー＞　固体核　ーー＞　微惑星　ーー＞　惑星
 
 現在の主要モデル
@@ -421,24 +388,7 @@ blockquote p:last-child {
 3. 原始惑星　ーー＞　惑星：岩石惑星（衝突），ガスと氷惑星（捕獲）
 疑問点：微惑星段階に抵抗増加による太陽へ落ちる可能性
 
-<style>
-blockquote {
-  padding: 0.5em 1em;
-  border-left: 4px solid currentColor;
-  line-height: 1;
-}
-
-blockquote p {
-  text-indent: 1em;
-  margin: 0 0 0.8em;
-  line-height: 1.2;
-}
-
-blockquote p:last-child {
-  margin-bottom: 0;
-}
-</style>
-
+ 
 ---
 
 > #### 基本運動と相互作用
@@ -451,24 +401,7 @@ blockquote p:last-child {
 >また,粒子ガス間相互作用としては,流体力学的抵抗,重力的抵抗,降着等がある.
 >さらに,粒子が帯電していたり,ガスがイオン化したりしていれば,磁場との相互作用がある.粒子とガスともに光子や宇宙線とも相互作用する.
 
-<style>
-blockquote {
-  padding: 0.5em 1em;
-  border-left: 4px solid currentColor;
-  line-height: 1;
-}
-
-blockquote p {
-  text-indent: 1em;
-  margin: 0 0 0.8em;
-  line-height: 1.2;
-}
-
-blockquote p:last-child {
-  margin-bottom: 0;
-}
-</style>
-
+ 
 
 ---
 
@@ -483,24 +416,7 @@ blockquote p:last-child {
 >
 >最後に組成進化である.これは集積進化とともに進行し,衝突脱ガス,分化や化学反応による物質の化学変化を表す.
 
-<style>
-blockquote {
-  padding: 0.5em 1em;
-  border-left: 4px solid currentColor;
-  line-height: 1;
-}
-
-blockquote p {
-  text-indent: 1em;
-  margin: 0 0 0.8em;
-  line-height: 1.2;
-}
-
-blockquote p:last-child {
-  margin-bottom: 0;
-}
-</style>
-
+ 
 ---
 
 >#### 研究手法
