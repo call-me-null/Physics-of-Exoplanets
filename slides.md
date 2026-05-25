@@ -520,6 +520,10 @@ $$
 
 ---
 
+
+
+---
+
 ### 物質分布：最小質量モデル
 
 1. 物質の最小移動：飛ばしたものがない．惑星が現在位置に形成する
@@ -569,14 +573,20 @@ $$
 
 マクスウェル分布
 $$
-f(v^2) = \exp\left(-\frac{m v^2}{2 k_{\mathrm{B}} T}\right)
+f(v) = \exp\left(-\frac{m v^2}{2 k_{\mathrm{B}} T}\right)
 $$
 規格化
 $$
 \int_{0}^{\infty}Af({v_x}^2,{v_y}^2,{v_z}^2)d{v_x}d{v_y}d{v_z} = 1 \\
-\rightarrow A\int_{\infty}^{0}exp\left( - \frac{m{v_x}^2}{2k_BT} \right)
-\int_{0}^{\infty}exp\left( - \frac{m{v_y}^2}{2k_BT} \right)
-\int_{0}^{\infty}exp\left( - \frac{m{v_y}^2}{2k_BT} \right) =1
+\rightarrow
+A
+\int_{0}^{\infty}
+\exp\left(-\frac{m v_x^2}{2k_{\mathrm{B}}T}\right)\,dv_x
+\int_{0}^{\infty}
+\exp\left(-\frac{m v_y^2}{2k_{\mathrm{B}}T}\right)\,dv_y
+\int_{0}^{\infty}
+\exp\left(-\frac{m v_z^2}{2k_{\mathrm{B}}T}\right)\,dv_z
+= 1
 $$
 $$
 A=4\pi \left(  \frac{m}{2\pi k_BT}  \right)^{3/2}
@@ -588,15 +598,93 @@ $$
 平均速度分布
 $$
 \bar{v} = \langle v \rangle
-= \int_0^\infty v f(v^2)\,dv 
+= \int_0^\infty v f(v)\,dv 
 $$
-積分する．
-$$
-\int_0^\infty x^n e^{-a x^2}\,dx = \left( \frac{n - 1}{2\alpha} \right) I_{n-2}
-$$
-から，平均速度
+積分する．平均速度は
 $$
 c_\mathrm{t} 
 =　 \sqrt{\frac{8}{\pi}}\frac{k_BT}{\mu m_H}
 = \sqrt{\frac{8}{\pi}}c_\mathrm{s}
 $$
+(2.2) 2.3導出
+
+---
+
+### 公転運動
+
+円筒座標系において，$( \bm{r}, z)$，$\Omega_g$は角速度．$r$成分と$z$成分は
+
+$$
+\begin{pmatrix} x \\ y \end{pmatrix} = \begin{pmatrix} R \cos(\Omega_g t + \phi_0) \\ R \sin(\Omega_g t + \phi_0) \end{pmatrix}, 
+\begin{pmatrix} z \end{pmatrix} = \begin{pmatrix}  z_0 \end{pmatrix}.
+$$
+$$
+\begin{pmatrix} v_x\\ v_y \end{pmatrix} = \begin{pmatrix} -R\Omega_g \sin(\Omega t + \phi_0) \\ R\Omega_g \cos(\Omega_g t + \phi_0) \end{pmatrix} = \begin{pmatrix} -\Omega_g y \\ \Omega_g x(t) \end{pmatrix} ,
+\begin{pmatrix} v_z\end{pmatrix} =  \begin{pmatrix} 0 \end{pmatrix}.
+$$
+オイラーの方程式
+$$
+ (\bm{v} \cdot \bm{\nabla}) \bm{v}-\frac{1}{\rho} \bm{\nabla} P - \bm{g} = \frac{\partial \bm{v}}{\partial t}
+$$
+力が釣り合うため
+$$
+ \frac{\partial \bm{v}}{\partial t} = 0
+$$
+
+---
+
+左辺第1項
+$$
+\begin{align*}
+(\bm{v} \cdot \bm{\nabla}) \bm{v} 
+&= (v_x \partial_x + v_x \partial_x)\begin{pmatrix} v_x\\ v_y \end{pmatrix}\\
+&= \Omega_g(-y\partial_x + x\partial_y)(-\Omega_g y )\begin{pmatrix} -\Omega_g y \\ \Omega_g x(t) \end{pmatrix}\\
+&=\Omega_g ^2r
+\end{align*}
+$$
+重力項
+$$
+\frac{GM_\odot m}{\bm{R}^2} \cdot \frac{|\bm{R}|}{\bm{R}} = m\bm{g} , |\bm{R}| = \sqrt{r^2 + z^2}
+$$
+$$
+\bm{g} = \frac{GM_\odot}{r^2 + z^2} \cdot \frac{r}{(r^2 + z^2)^{1/2}}
+$$
+$r$成分のオイラーの方程式は
+$$
+r\Omega_\mathrm{g}^2 - \frac{GM_\odot r}{(r^2+z^2)^{3/2}} - \frac{1}{\rho}\frac{\partial P}{\partial r} = 0
+$$
+
+---
+
+同じように，$z$成分は
+$$
+-\frac{GM_\odot z}{(r^2+z^2)^{3/2}} - \frac{1}{\rho}\frac{\partial P}{\partial z} = 0
+$$
+薄い円盤であれば，$z<<r$，$(r^2+z^2)^{3/2} \rightarrow r^3$
+$$
+\frac{GM_\odot r}{r^3} = \frac{GM_\odot}{r^2}
+$$
+また，ケプラー角速度は $\Omega_K^2 = \frac{GM_\odot}{r^3}$
+$$
+\frac{GM_\odot r}{(r^2+z^2)^{3/2}} \simeq  \frac{GM_\odot}{r^2} = r \Omega_K^2 
+$$
+今，圧力勾配力について調べる． $P = c_s^2 \rho$　から 
+$$
+\frac{P}{\rho} = c_s^2 , 
+\frac{\partial P}{\partial r} = \frac{P}{r} \frac{\partial \ln P}{\partial \ln r}
+$$
+$$
+\frac{1}{\rho}\frac{\partial P}{\partial r} = \frac{c_s^2}{r^2} \frac{\partial \ln P}{\partial \ln r}
+$$
+
+---
+
+以上より
+$$
+\Omega_\mathrm{g} \simeq \Omega_\mathrm{K}\left(1 + \frac{c_\mathrm{s}^2}{r^2\Omega_\mathrm{K}^2}\frac{\partial\ln P}{\partial\ln r}\right)^{1/2} 
+$$
+と書くことができる．
+$$
+\eta = -\frac{1}{2}\left(\frac{c_\mathrm{s}}{v_\mathrm{K}}\right)^2\frac{\partial\ln P}{\partial\ln r}
+$$
+を定義し，回転角速度 $\Omega_\mathrm{g} = \Omega_\mathrm{K}(1-\eta)$ とかける．ここで， $v_\mathrm{K} = r\Omega_\mathrm{K}$である．

@@ -37,6 +37,11 @@ The slides will auto-reload as you edit [`slides.md`](./slides.md).
 | `pnpm build` | Build a static site (output in `dist/`) |
 | `pnpm export` | Export the presentation as PDF |
 
+update Slidev CLI 
+`pnpm add -D @slidev/cli@latest`
+update other
+`pnpm up @slidev/cli @slidev/client @slidev/parser @slidev/types`
+
 ### Presenter Mode
 
 Open [http://localhost:3030/presenter](http://localhost:3030/presenter) during the dev session for speaker notes, a timer, and slide controls.
