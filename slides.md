@@ -520,7 +520,9 @@ $$
 
 ---
 
+$$
 
+$$
 
 ---
 
@@ -688,3 +690,34 @@ $$
 \eta = -\frac{1}{2}\left(\frac{c_\mathrm{s}}{v_\mathrm{K}}\right)^2\frac{\partial\ln P}{\partial\ln r}
 $$
 を定義し，回転角速度 $\Omega_\mathrm{g} = \Omega_\mathrm{K}(1-\eta)$ とかける．ここで， $v_\mathrm{K} = r\Omega_\mathrm{K}$である．
+
+
+---
+
+静水圧平衡：流体の重力による収縮と圧力勾配による膨張が釣り合うこと．
+$$
+P = C \rho \quad (C \text{ は定数}), \qquad \bm{v} = \bm{0}
+$$
+をオイラーの方程式に代入し
+$$
+-\frac{C}{\rho}(\bm{\nabla} \cdot \rho) + g = 0
+$$
+$z$成分を考えて，$\rho$は$z$の関数
+$$
+\begin{gathered}
+  \frac{C}{\rho(z)} \frac{\partial \rho(z)}{\partial z} - g = 0 \\[7pt]
+  C \frac{\partial}{\partial z} \log \rho(z) - g = 0 \\[7pt]
+  \rho(z) = C_0 \exp\left(-\frac{g}{C}z\right),
+  \quad C_0 \text{ は積分定数}
+\end{gathered}
+$$
+
+---
+
+ここに$g$を書き直し
+$$
+g= \frac{GM_\odot z}{r^3} ,\quad -\frac{g}{C}=\frac{GM_\odot z}{c_s^2 r^3} = \frac{\Omega_k^2z}{c_s^2}
+$$
+$$
+\rho_g = C_0\exp{(-\frac{\Omega_k^2}{c_s^2}z^2)} =  C_0\exp{(-\frac{z^2}{H^2})}, \quad H= \frac{\Omega_k}{c_s}
+$$
