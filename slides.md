@@ -617,20 +617,20 @@ $$
 円筒座標系において，$( \bm{r}, z)$，$\Omega_g$は角速度．$r$成分と$z$成分は
 
 $$
-\begin{pmatrix} x \\ y \end{pmatrix} = \begin{pmatrix} R \cos(\Omega_g t + \phi_0) \\ R \sin(\Omega_g t + \phi_0) \end{pmatrix}, 
+\begin{pmatrix} x \\ y \end{pmatrix} = \begin{pmatrix} r \cos(\Omega_g t + \phi_0) \\ r \sin(\Omega_g t + \phi_0) \end{pmatrix}, 
 \begin{pmatrix} z \end{pmatrix} = \begin{pmatrix}  z_0 \end{pmatrix}.
 $$
 $$
 \begin{pmatrix} v_x\\ v_y \end{pmatrix} = \begin{pmatrix} -R\Omega_g \sin(\Omega t + \phi_0) \\ R\Omega_g \cos(\Omega_g t + \phi_0) \end{pmatrix} = \begin{pmatrix} -\Omega_g y \\ \Omega_g x(t) \end{pmatrix} ,
-\begin{pmatrix} v_z\end{pmatrix} =  \begin{pmatrix} 0 \end{pmatrix}.
+\begin{pmatrix} v_z\end{pmatrix} =  \begin{pmatrix} z(t) \end{pmatrix}.
 $$
 オイラーの方程式
 $$
- (\bm{v} \cdot \bm{\nabla}) \bm{v}-\frac{1}{\rho} \bm{\nabla} P - \bm{g} = \frac{\partial \bm{v}}{\partial t}
+(\bm{v} \cdot \bm{\nabla}) \bm{v}-\frac{1}{\rho} \bm{\nabla} P - \bm{g} = \frac{\partial \bm{v}}{\partial t}
 $$
 力が釣り合うため
 $$
- \frac{\partial \bm{v}}{\partial t} = 0
+\frac{\partial \bm{v}}{\partial t} = 0
 $$
 
 ---
