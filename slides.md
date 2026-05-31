@@ -512,7 +512,7 @@ $$
 
 この式から
 $$
-\frac{L_*}{8\sigma_\mathrm{SB}\pi r^2 } =  T^4
+\frac{L_*}{16\sigma_\mathrm{SB}\pi r^2 } =  T^4
 $$
 ダストの温度が半径に依存しないことがわかる．
 
@@ -521,7 +521,21 @@ $$
 ---
 
 $$
-
+T = \frac{1}{16\sigma \pi} 
+\left(\frac{L_*}{L_\odot}\right)^{1/4}\left(\frac{r}{1\,\mathrm{au}}\right)^{-1/2}
+= \frac{1}{16\sigma \pi} 
+\left(\frac{L_*}{L_\odot} \cdot L_\odot \right)^{1/4}
+\left(\frac{r}{1\,\mathrm{au}} \cdot 1\,\mathrm{au} \right)^{-1/2}
+$$
+ここに，（強調すべきなのは，国際単位系に換算すること）
+$$
+\sigma = 5.670374419\times 10^{-8} \, \mathrm{J\,m^{-2}\,K^{-4}} \\
+L_{\odot} = 3.84\times 10^{33} \,\mathrm{erg\,s^{-1}} = 3.84 \times 10^{26} \,\mathrm{J\,s^{-1}} \\
+1 \,\mathrm{au} \sim 1.5 \times 10^{11} \,\mathrm{m}
+$$
+を代入し，
+$$
+T = 2.8\times 10^2 \left(\frac{L_*}{L_\odot}\right)^{1/4}\left(\frac{r}{1\,\mathrm{au}}\right)^{-1/2}\,\mathrm{K}
 $$
 
 ---
@@ -608,7 +622,7 @@ c_\mathrm{t}
 =　 \sqrt{\frac{8}{\pi}}\frac{k_BT}{\mu m_H}
 = \sqrt{\frac{8}{\pi}}c_\mathrm{s}
 $$
-(2.2) 2.3導出
+
 
 ---
 
@@ -622,7 +636,7 @@ $$
 $$
 $$
 \begin{pmatrix} v_x\\ v_y \end{pmatrix} = \begin{pmatrix} -R\Omega_g \sin(\Omega t + \phi_0) \\ R\Omega_g \cos(\Omega_g t + \phi_0) \end{pmatrix} = \begin{pmatrix} -\Omega_g y \\ \Omega_g x(t) \end{pmatrix} ,
-\begin{pmatrix} v_z\end{pmatrix} =  \begin{pmatrix} 0 \end{pmatrix}.
+\begin{pmatrix} v_z\end{pmatrix} =  \begin{pmatrix} v_z(t) \end{pmatrix}.
 $$
 オイラーの方程式
 $$
@@ -720,4 +734,35 @@ g= \frac{GM_\odot z}{r^3} ,\quad -\frac{g}{C}=\frac{GM_\odot z}{c_s^2 r^3} = \fr
 $$
 $$
 \rho_g = C_0\exp{(-\frac{\Omega_k^2}{c_s^2}z^2)} =  C_0\exp{(-\frac{z^2}{H^2})}, \quad H= \frac{\Omega_k}{c_s}
+$$
+$$
+\rho \left( 0 \right) = \rho_0 = C_0
+$$
+
+---
+
+$$
+\rho_\mathrm{g} = \frac{\Sigma_\mathrm{g}}{\sqrt{\pi}\,H}\exp\left(-\frac{z^2}{H^2}\right)
+$$
+
+$$
+\begin{align*}
+\rho_\mathrm{g}
+&=
+\frac{
+  1.7 \times 10^3
+  \left(\frac{r}{1\,\mathrm{au}}\right)^{-3/2}
+  \,\mathrm{g\,cm^{-2}}
+}{
+  \sqrt{\pi}\,
+  0.047
+  \left(\frac{T}{280\,\mathrm{K}}\right)^{1/2}
+  \left(\frac{r}{1\,\mathrm{au}}\right)^{3/2}
+  \,\mathrm{au}
+} \\[7pt]
+&=
+1.4 \times 10^{-9}
+\left(\frac{r}{1\,\mathrm{au}}\right)^{-11/4}
+\,\mathrm{g\,cm^{-3}} .
+\end{align*}
 $$
