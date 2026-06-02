@@ -636,11 +636,8 @@ $$
 $$
 $$
 \begin{pmatrix} v_x\\ v_y \end{pmatrix} = \begin{pmatrix} -R\Omega_g \sin(\Omega t + \phi_0) \\ R\Omega_g \cos(\Omega_g t + \phi_0) \end{pmatrix} = \begin{pmatrix} -\Omega_g y \\ \Omega_g x(t) \end{pmatrix} ,
-<<<<<<< HEAD
 \begin{pmatrix} v_z\end{pmatrix} =  \begin{pmatrix} v_z(t) \end{pmatrix}.
-=======
-\begin{pmatrix} v_z\end{pmatrix} =  \begin{pmatrix} z(t) \end{pmatrix}.
->>>>>>> 212e60f00e5d4c31483a3f179cbb1d0c37dca1d9
+
 $$
 オイラーの方程式
 $$
@@ -770,3 +767,25 @@ $$
 \,\mathrm{g\,cm^{-3}} .
 \end{align*}
 $$
+
+#### 平均自由行程
+ガスの衝突確率は$n\sigma_{H_2}$（ここで，$\sigma_{H_2}$は水素の衝突確率），平均自由行程は
+$$
+l \simeq \frac{1}{n\sigma_{H_2}} = \frac{\mu m_H}{\rho_g \sigma_{H_2}}
+$$
+$\mu = 2.34, \qquad 
+\sigma_\mathrm{H_2} \simeq 3 \times 10^{-15}\,\mathrm{cm^2}, \qquad
+m_H \sim 1.67 \times 10^{-24}
+$を代入し
+$$
+l \simeq = 0.93\left(\frac{r}{1\,\mathrm{au}}\right)^{11/4}\,\mathrm{cm}
+$$
+
+---
+
+### ガス円盤の進化
+
+ガス円盤の基本進化は粘性拡散である．粘性によって角運動量を外側へ輸送する．ここに，**粘性**は分子粘性ではなく，磁気回転不安定による乱流の有効粘性である．
+>磁気回転不安定性：差動回転する磁気流体に普遍的に起こる不安定性のことで，回転軸に対して微小変動を受けた内側と外側のプラズマの角運動量が，プラズマを貫く磁力線を介して交換されることにより成長する。
+
+>差動回転：連続体が回転運動する場合，各部の角速度が
