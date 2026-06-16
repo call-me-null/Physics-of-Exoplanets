@@ -821,10 +821,124 @@ $\alpha$モデル：$\nu = \alpha c_\mathrm{s} H$を使う．$\alpha = 10^{-4}\t
 
 ---
 
-確認：
+## ヒル方程式
 
-Q1. 粘性によって角運動量が内側から外側へ輸送されると，なぜ内側のガスは中心星へ落ち込みやすくなるのですか．
+座標変換，回転座標系へ．
+$$
+r = a_0+x \\
+\phi = \Omega_0 t +\frac ya_0\\
+z = z
+$$
+逆変換すると
+$$
+\begin{align*}
+x &= r - a_0  \\
+y &= a_0(\phi - \Omega_0 t)  \\
+z &= z 
+\end{align*}
+$$
+回転座標系なので，運動方程式は
+$$
+\ddot x = 2\Omega_0 \dot y +\Omega_0^2x \\
+\ddot y = -2\Omega_0 \dot x +\Omega_0^2y
+$$
 
-Q2. 第2項と第3項との違い
+---
 
-Q3. 光蒸発と磁気円盤風は，どちらも円盤ガスを減らしますが，物理的には何が違いますか
+- Nakazawa, K. and Ida, S. (1988), Chapter 15. Hill's Approximation in the Three-Body Problem, *Progress of Theoretical Physics Supplement*, **96**, 167–174.
+$$
+\begin{align*}
+x &= \varpi - a_0, \notag \\
+y &= a_0(\theta - \Omega_0 t), \notag \\
+z &= z,
+\end{align*}
+$$
+ここで，$\Omega_0$ は $\varpi=a_0$ でのケプラー角運動量である．
+$$
+\begin{equation*}
+\Omega_0^2
+=
+\frac{G(M_\odot+m_1+m_2)}{a_0^3},
+\end{equation*}
+$$
+次のことを仮定する．これは「ヒル近似」である．
+$$
+m_j \ll M_\odot,
+\qquad (j=1,\ 2),
+$$
+$$
+\begin{align*}
+|x_j|,\ |z_j| &\ll a_0, \notag \\
+|x_j'|,\ |y_j'|,\ |z_j'|
+&\ll a_0\Omega_0, \notag \\
+|x_j''|,\ |y_j''|,\ |z_j''|
+&\ll a_0\Omega_0^2.
+\end{align*}
+$$
+
+---
+
+上の条件は次のように書ける．
+$$
+\begin{align*}
+e_j,\ i_j &\ll 1, \notag \\
+|a_j-a_0| &\ll a_0,
+\end{align*}
+$$
+運動方程式は
+$$
+\begin{align*}
+\ddot{r}_j-r_j{\dot{\phi}_j}^2 &= -\frac{GM_*}{{r_j}^2}+F_{ij,r} \\
+r_j\ddot{\phi_j}+ 2\dot{r}_j\dot{\phi}_j &= F_{ij,\phi}\\
+\ddot{z}_j &= -\frac{GM_*}{{r_j}^2}+F_{ij,z}
+\end{align*}
+$$
+$F$は相互運動（$m_1$と$m_2$）
+$$
+\begin{align*}
+\dot{r}_j &= \dot{z}_j \\
+\dot{\phi}_j &= \Omega_0 + \frac{\dot{y}_j}{a_0} \\
+\ddot{\phi}_j &=  \frac{\ddot{y}_j}{a_0}
+\end{align*}
+$$
+
+---
+
+を代入し，$r$方向の運動方程式は，左辺
+$$
+\begin{align*}
+\ddot{r}_j-r_j{\dot{\phi}_j}^2 &=
+\ddot{x}_j - (a_0+x_j)(\Omega_0 + \frac{\dot{y}_j}{a_0})^2 \\
+&= \ddot{x}_j - (a_0+x_j)({\Omega_0}^2 + 2\Omega_0 \frac{\dot{y}_j}{a_0} + \left(\frac{\dot{y}_j}{a_0}\right)^2) 
+\quad \text{（2次項無視）} \\
+&= \ddot{x}_j -(a_0{\Omega_0}^2 + 2a_0\Omega_0\frac{\dot{y}_j}{a_0} + x_j{\Omega_0}^2 + 2x_j\Omega_0\frac{\dot{y}_j}{a_0}) \\
+&= \ddot{x}_j - a_0{\Omega_0}^2 -x_j{\Omega_0}^2 -2\Omega_0 \dot{y}_j -x_j {\Omega_0}^2 \\
+
+\end{align*}
+$$
+$$
+\begin{align*}
+\text{中心星重力：}
+- \frac{GM_*}{{r_j}^2} &= - \frac{GM_*}{(a_0 +x_j)^2} ,
+\quad \frac{x_j}{a_0} \text{について2次項無視} \\
+\frac{GM_*}{
+  {a_0}^2 \left(1+ \frac{x_j}{a_0} \right)^2 
+}
+&= 
+\frac{GM_*}{
+  {a_0}^2 \left(1 - 2\frac{x_j}{a_0} \right) 
+}
+\end{align*}
+$$
+${\Omega_0}^2 = \frac{GM_*}{{a_0}^2}$ を代入，$-\frac{GM_*}{{r_j}^2}= -a_0{\Omega_j}^2 + 2{\Omega_0}^2x_j$
+
+---
+
+$$
+\begin{align*}
+\ddot{r}_j-r_j{\dot{\phi}_j}^2 
+&= \ddot{x}_j - a_0{\Omega_0}^2 -x_j{\Omega_0}^2 -2\Omega_0 \dot{y}_j -x_j {\Omega_0}^2 \\
+&= -a_0{\Omega_j}^2 + 2{\Omega_0}^2x_j + F_{x,j}\\
+\ddot{x}_j &= 2\Omega_0 \dot{y}_j + 3{\Omega_0}^2 x_j \text{2体問題の場合}$F=0$
+\end{align*}
+$$
